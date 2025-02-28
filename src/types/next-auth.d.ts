@@ -1,12 +1,18 @@
-"use client"
-import NextAuth, { DefaultSession } from "next-auth";
+import { User } from "next-auth"
+import { JWT } from "next-auth/jwt"
+
+type UserId = string
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    id: UserId
+  }
+}
 
 declare module "next-auth" {
-  interface Session extends DefaultSession {
-    accessToken?: string;
-  }
-
-  interface JWT {
-    accessToken?: string;
+  interface Session {
+    user: User & {
+      id: UserId
+    }
   }
 }
