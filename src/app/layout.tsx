@@ -3,6 +3,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "@/helper/ctx";
+import LoginPage from "./login/page";
 
 
 
@@ -26,24 +27,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
       <SessionProvider>
+        <LoginPage />
         {children}
       </SessionProvider>
       </body>
     </html>
   );
 }
-
-// function RootLayoutNav({children}: Readonly<{children: React.ReactNode}>) {
-//   return(
-//     <SessionProvider>
-//       <html lang="en">
-//           <body
-//             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-//           >
-//             <main>{children}</main>
-//           </body>
-//       </html>
-//     </SessionProvider>
-  
-//   )
-// }

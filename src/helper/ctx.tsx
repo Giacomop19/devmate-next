@@ -41,7 +41,7 @@ export function SessionProvider(props: Readonly<React.PropsWithChildren>) {
       value={{
         signIn: async (data) => {
           try {
-            setToken(data.data.token);
+            setToken(data);
           }
           catch (err){
             console.error(err)

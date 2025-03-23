@@ -36,7 +36,7 @@ export default function LoginPage() {
     setError(""); // Reset error message
 
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/api/auth/login`, {
+      const res = await fetch(`http://localhost:3030/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
